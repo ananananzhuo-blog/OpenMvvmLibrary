@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-  <com.ananananzhuo.mvvm.view.recycle.CustomRecyclerView
-      android:id="@+id/recycle_main"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="这是展示页面"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
