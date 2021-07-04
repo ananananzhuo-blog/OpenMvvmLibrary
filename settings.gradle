@@ -1,0 +1,3 @@
+rootProject.name = "MvvnLibrarySimple"
+include ':app'
+include ':mvvm'
