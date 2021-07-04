@@ -51,4 +51,4 @@ ext {
     uploadSources = false
     PROJECT_NAME = 'https://github.com/ananananzhuo-blog/OpenMvvmLibrary'
 }
-//apply from: '../maven_push1.gradle'
+apply from: '../maven_push1.gradle'
