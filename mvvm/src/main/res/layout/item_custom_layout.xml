@@ -34,8 +34,11 @@
     <TextView
         android:id="@+id/tv_reyccle_item_content"
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="哈哈"
         android:visibility="gone"
         android:textColor="#f00"
         android:paddingBottom="5dp"

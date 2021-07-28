@@ -21,9 +21,26 @@ class CustomRecyclerView(context: Context, attrs: AttributeSet?) : RecyclerView(
     }
 
     fun setCustomAdapter(datas: MutableList<ItemData>) {
-        datas.add(0, ItemData("本栏目由\"安安安安卓\"独家开发，禁转载", {},itemTextColor = Color.RED))
+        setCustomAdapter(datas, true)
+    }
+
+    /**
+     * @param showFirstItem true:展示顶部的数据，false：不展示
+     */
+    fun setCustomAdapter(datas: MutableList<ItemData>, showFirstItem: Boolean) {
+        if (showFirstItem) {
+            datas.add(
+                0,
+                ItemData("本栏目由\"安安安安卓\"独家开发，禁抄袭", itemTextColor = Color.RED, showIcon = false),
+            )
+        }
         val adapter = CustomAdapter(context, datas)
         layoutManager = LinearLayoutManager(context)
+        datas.forEach {
+            it.adapter = adapter
+        }
         super.setAdapter(adapter)
+
     }
+
 }

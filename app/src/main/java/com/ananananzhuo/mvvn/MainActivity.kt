@@ -2,24 +2,28 @@ package com.ananananzhuo.mvvn
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ananananzhuo.mvvm.activity.CustomAdapterActivity
 import com.ananananzhuo.mvvm.bean.bean.ItemData
+import com.ananananzhuo.mvvm.callback.CallData
+import com.ananananzhuo.mvvm.callback.Callback
 import com.ananananzhuo.mvvm.utils.logEE
 import com.ananananzhuo.mvvm.view.recycle.CustomRecyclerView
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val recycle = findViewById<CustomRecyclerView>(R.id.recycle_main)
-        recycle.setCustomAdapter(datas)
+class MainActivity : CustomAdapterActivity() {
+
+    override fun getAdapterDatas(): MutableList<ItemData> {
+        return  mutableListOf(
+            ItemData("哈哈", callback = object : Callback {
+                override fun callback(callData: CallData) {
+                    callData.itemData.content =
+                        "哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥"
+                    callData.itemData.notifyDataSetChange()
+                }
+            }),
+        )
     }
 
-    private val datas = mutableListOf(
-        ItemData("哈哈", {
-            logEE("哈行aha")
-        }),
-        ItemData("跳转到下一个Activity", {
-            logEE("哈行aha")
-        },activity = ShowActivity::class.java)
-    )
+    override fun showFirstItem(): Boolean {
+        return true
+    }
 }

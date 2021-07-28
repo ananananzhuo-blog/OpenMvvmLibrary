@@ -42,7 +42,13 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvContent = itemView.findViewById<TextView>(R.id.tv_reyccle_item_content)
 
     fun bindData(itemData: ItemData) {
-        iv.setImageResource(itemData.icon)
+        if (itemData.showIcon) {
+            iv.setImageResource(itemData.icon)
+            iv.visibility = View.VISIBLE
+        } else {
+            iv.visibility = View.GONE
+        }
+
         tvTitle.text = itemData.title
         tvTitle.setTextColor(itemData.itemTextColor)
         if (itemData.content.isEmpty()) {
@@ -51,13 +57,11 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tvContent.visibility = View.VISIBLE
             tvContent.text = itemData.content
         }
-        itemView.setOnClickListener(if (itemData.activity == null) {
-            itemData.callback
-        } else {
-            View.OnClickListener {
-                itemView.context.startActivity(Intent(itemView.context, itemData.activity))
+        itemView.setOnClickListener {
+            itemData.let {
+                itemData.callback?.callback(itemData.callData)
             }
-        })
+        }
     }
 }
 
