@@ -1,13 +1,11 @@
 package com.ananananzhuo.mvvn
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.widget.ImageView
 import com.ananananzhuo.mvvm.activity.CustomAdapterActivity
 import com.ananananzhuo.mvvm.bean.bean.ItemData
 import com.ananananzhuo.mvvm.callback.CallData
 import com.ananananzhuo.mvvm.callback.Callback
-import com.ananananzhuo.mvvm.utils.logEE
-import com.ananananzhuo.mvvm.view.recycle.CustomRecyclerView
+import com.ananananzhuo.mvvm.callback.ImageCallback
 
 class MainActivity : CustomAdapterActivity() {
 
@@ -19,7 +17,11 @@ class MainActivity : CustomAdapterActivity() {
                         "哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥哈哈哈哈哈东扥撒扥"
                     callData.itemData.notifyDataSetChange()
                 }
-            }),
+            },ivCallback = object :ImageCallback{
+                override fun showIv(iv: ImageView) {
+                    iv.setImageResource(R.drawable.apple)
+                }
+            })
         )
     }
 

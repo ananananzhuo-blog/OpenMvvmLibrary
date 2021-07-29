@@ -3,9 +3,11 @@ package com.ananananzhuo.mvvm.view.recycle
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +42,9 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val iv = itemView.findViewById<ImageView>(R.id.iv_recycle_item)
     private val tvTitle = itemView.findViewById<TextView>(R.id.tv_recycle_item_title)
     private val tvContent = itemView.findViewById<TextView>(R.id.tv_reyccle_item_content)
+    private val ivContent = itemView.findViewById<ImageView>(R.id.iv_recycle_item_content)
 
+    //    private val flContainer = itemView.findViewById<FrameLayout>(R.id.fl_container)
     fun bindData(itemData: ItemData) {
         if (itemData.showIcon) {
             iv.setImageResource(itemData.icon)
@@ -51,12 +55,25 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         tvTitle.text = itemData.title
         tvTitle.setTextColor(itemData.itemTextColor)
-        if (itemData.content.isEmpty()) {
-            tvContent.visibility = View.GONE
+//        if (itemData.content.isEmpty()) {
+//            tvContent.visibility = View.GONE
+//        } else {
+//            tvContent.visibility = View.VISIBLE
+//            tvContent.text = itemData.content
+//        }
+        if (itemData.ivCallback != null) {
+            ivContent.visibility = View.VISIBLE
+            itemData.ivCallback.showIv(iv)
         } else {
+            ivContent.visibility = View.GONE
+        }
+        if (!TextUtils.isEmpty(itemData.content)) {
             tvContent.visibility = View.VISIBLE
             tvContent.text = itemData.content
+        } else {
+            tvContent.visibility = View.GONE
         }
+
         itemView.setOnClickListener {
             itemData.let {
                 itemData.callback?.callback(itemData.callData)
