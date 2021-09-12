@@ -63,7 +63,7 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        }
         if (itemData.ivCallback != null) {
             ivContent.visibility = View.VISIBLE
-            itemData.ivCallback.showIv(iv)
+            itemData.ivCallback?.showIv(iv)
         } else {
             ivContent.visibility = View.GONE
         }
@@ -77,6 +77,7 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.setOnClickListener {
             itemData.let {
                 itemData.callback?.callback(itemData.callData)
+                itemData.lamCallback?.invoke(itemData.callData)
             }
         }
     }

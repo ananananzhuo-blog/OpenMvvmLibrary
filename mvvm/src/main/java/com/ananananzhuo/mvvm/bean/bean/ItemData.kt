@@ -19,14 +19,15 @@ import kotlin.jvm.functions.FunctionN
 data class ItemData(
     var title: String,
     var icon: Int = R.drawable.apple,
-    val itemTextColor: Int = Color.BLACK,//文字颜色
-    val activity: Class<*>? = null,//将要跳转的activity
-    val callback: Callback?=null,//点击回调
-    val callData: CallData=CallData(),
+    var itemTextColor: Int = Color.BLACK,//文字颜色
+    var activity: Class<*>? = null,//将要跳转的activity
+    var callback: Callback?=null,//点击回调
+    var callData: CallData=CallData(),
     var adapter: CustomAdapter?=null,//适配器
     var showIcon:Boolean =true,//是否展示第一条的Imageview图片
-    var content: String = "",//不为空就展示Textview
-    val ivCallback:ImageCallback?=null//有回调就展示Imageview
+    var content: String? = "",//不为空就展示Textview
+    var ivCallback:ImageCallback?=null,//有回调就展示Imageview
+    var lamCallback:((callData:CallData)->Unit)?
 ){
     init {
         callData.itemData=this
