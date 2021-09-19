@@ -27,7 +27,7 @@ data class ItemData(
     var showIcon:Boolean =true,//是否展示第一条的Imageview图片
     var content: String? = "",//不为空就展示Textview
     var ivCallback:ImageCallback?=null,//有回调就展示Imageview
-    var lamCallback:((callData:CallData)->Unit)?
+    var lamCallback:((callData:CallData)->Unit)?=null
 ){
     init {
         callData.itemData=this

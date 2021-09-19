@@ -1,11 +1,13 @@
 package com.ananananzhuo.mvvn
 
+import android.content.Intent
 import android.widget.ImageView
 import com.ananananzhuo.mvvm.activity.CustomAdapterActivity
 import com.ananananzhuo.mvvm.bean.bean.ItemData
 import com.ananananzhuo.mvvm.callback.CallData
 import com.ananananzhuo.mvvm.callback.Callback
 import com.ananananzhuo.mvvm.callback.ImageCallback
+import com.ananananzhuo.mvvm.utils.logEE
 
 class MainActivity : CustomAdapterActivity() {
 
@@ -21,7 +23,13 @@ class MainActivity : CustomAdapterActivity() {
                 override fun showIv(iv: ImageView) {
                     iv.setImageResource(R.drawable.apple)
                 }
-            })
+            }){
+                logEE(it.itemData.title)
+            },
+            ItemData("单条item的activity"){
+                startActivity(Intent(this,SingleItemPageActivity::class.java))
+            }
+
         )
     }
 

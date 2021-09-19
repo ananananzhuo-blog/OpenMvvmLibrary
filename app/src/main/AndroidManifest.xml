@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MvvnLibrarySimple">
-        <activity android:name=".ShowActivity"></activity>
+        <activity
+            android:name=".SingleItemPageActivity"
+            android:exported="true" />
+        <activity android:name=".ShowActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
