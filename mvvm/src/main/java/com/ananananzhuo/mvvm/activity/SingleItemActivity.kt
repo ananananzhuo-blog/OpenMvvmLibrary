@@ -16,5 +16,5 @@ abstract class SingleItemActivity : CustomAdapterActivity() {
         ItemData(title = title,lamCallback = callback)
     )
 
-    override fun showFirstItem(): Boolean = true
+    override fun showFirstItem(): Boolean = false
 }

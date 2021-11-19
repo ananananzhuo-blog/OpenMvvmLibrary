@@ -1,10 +1,11 @@
-package com.ananananzhuo.mvvm
+package com.ananananzhuo.mvvm.activity
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ananananzhuo.mvvm.R
 import com.ananananzhuo.mvvm.bean.bean.ItemData
 import com.ananananzhuo.mvvm.view.recycle.CustomRecyclerView
 
