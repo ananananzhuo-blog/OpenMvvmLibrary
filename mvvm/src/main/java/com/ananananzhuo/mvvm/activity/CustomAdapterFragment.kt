@@ -24,7 +24,7 @@ abstract class CustomAdapterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycle = view.findViewById<CustomRecyclerView>(R.id.customRecycle)
+        recycle = view.findViewById(R.id.customRecycle)
         recycle.setCustomAdapter(getAdapterDatas(), showFirstItem())
 
     }
