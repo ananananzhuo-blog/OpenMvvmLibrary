@@ -9,7 +9,7 @@ import com.ananananzhuo.mvvm.bean.bean.ItemData
 import com.ananananzhuo.mvvm.databinding.FragmentCustomAdapterBinding
 
 /**
- * author  :mayong
+ * author  :mayongF
  * function:支持
  * date    :2021/11/19
  **/
