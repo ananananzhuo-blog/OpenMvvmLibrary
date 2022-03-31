@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        versionName = '1.0.13-SNAPSHOT'
-        versionCode = 13
+        versionName = '1.0.14-SNAPSHOT'
+        versionCode = 14
     }
     ext.kotlin_version = "1.5.10"
     repositories {
