@@ -76,7 +76,7 @@ class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.setOnClickListener {
             itemData.let {
-                itemData.callback?.callback(itemData.callData)
+                itemData.callback?.invoke(itemData.callData)
                 itemData.lamCallback?.invoke(itemData.callData)
             }
         }
